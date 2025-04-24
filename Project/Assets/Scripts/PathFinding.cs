@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PathFinding
 {
-    private const int MOVE_STRAIGHT_COST = 10;
-    private const int MOVE_DIAGONAL_COST = 14;
+    private int moveStraightCost = 10;
+    private int moveDiagonalCost = 14;
 
     private Grid<PathNode> grid;
     private List<PathNode> openList;
@@ -124,7 +124,7 @@ public class PathFinding
         int yDistance = Mathf.Abs(a.y - b.y);
         int remaining = Mathf.Abs(xDistance - yDistance);
         
-        return MOVE_STRAIGHT_COST * remaining + MOVE_DIAGONAL_COST * Mathf.Min(xDistance,yDistance);
+        return moveStraightCost * remaining + moveDiagonalCost * Mathf.Min(xDistance,yDistance);
     }
 
     private PathNode GetLowestFCostNode(List<PathNode> pathNodeList) {

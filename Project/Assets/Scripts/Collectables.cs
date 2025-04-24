@@ -7,6 +7,7 @@ public class Collectables : MonoBehaviour
     public TextMeshProUGUI scoreText;
     public GameObject normalObject;
     public GameObject hatObject;
+    public GameObject restartButton;
     int score = 0;
     public EnemyAI enemy1;
     public EnemyAI enemy2;
@@ -18,6 +19,7 @@ public class Collectables : MonoBehaviour
 
     private void Start()
     {
+        restartButton.SetActive(false);
         normalObject.SetActive(true);
         hatObject.SetActive(false);
     }
@@ -53,6 +55,7 @@ public class Collectables : MonoBehaviour
         {
             if (!isBoosted)
             {
+                restartButton.SetActive(true);
                 centerText.text = "You Lose";
                 Destroy(enemy1.gameObject);
                 Destroy(enemy2.gameObject);
